@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#071014">
+  <title>Neon Frontier — Outpost 09</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main id="game-shell">
+    <canvas id="screen" aria-label="Neon Frontier first-person arcade game"></canvas>
+    <div class="scanlines" aria-hidden="true"></div>
+    <div id="hud" class="hud hidden">
+      <div class="topbar">
+        <div class="brand"><span class="brand-mark">✦</span><div><b>NEON FRONTIER</b><small>OUTPOST 09 // SECTOR K</small></div></div>
+        <div class="wave-chip"><span class="live-dot"></span> WAVE <b id="wave">01</b></div>
+        <div class="objective"><small>OBJECTIVE</small><b>Clear the arena</b></div>
+      </div>
+      <div class="left-hud">
+        <div class="stat-label"><span>VITALS</span><b id="health-value">100</b></div>
+        <div class="meter"><i id="health-bar"></i></div>
+        <div class="stat-label shield-label"><span>SHIELD</span><b id="shield-value">100</b></div>
+        <div class="meter shield-meter"><i id="shield-bar"></i></div>
+      </div>
+      <div class="right-hud">
+        <div class="kills"><span class="skull">✦</span><div><b id="kills">000</b><small>HOSTILES TAGGED</small></div></div>
+        <div class="score"><small>SCORE</small><b id="score">000000</b></div>
+      </div>
+      <div class="bottom-hud">
+        <div class="weapon-card"><div class="weapon-icon" id="weapon-icon">⌁</div><div><small>LOADOUT <span id="weapon-number">01</span> / 06</small><b id="weapon-name">PULSE SIDEARM</b><span id="weapon-note">STABLE · SEMI-AUTO</span></div></div>
+        <div class="ammo"><b id="ammo">12</b><span>/ <i id="reserve">∞</i></span><small>ENERGY CELLS</small></div>
+      </div>
+      <div id="message" class="message"></div>
+      <div id="crosshair" class="crosshair"><i></i><i></i><i></i><i></i><b></b></div>
+      <div id="damage-flash" class="damage-flash"></div>
+    </div>
+    <section id="title-screen" class="screen-panel">
+      <div class="eyebrow"><span></span> FRONTIER DEFENSE DIVISION <span></span></div>
+      <h1>NEON<br><em>FRONTIER</em></h1>
+      <p class="subtitle">OUTPOST 09 HAS GONE DARK.</p>
+      <p class="intro">The rogue security units are still online.<br>Suit up, pick your loadout, and take the sector back.</p>
+      <button id="start-button" class="primary-button">DEPLOY <span>→</span></button>
+      <div class="title-foot"><span>ARCADE COMBAT SIMULATION</span><span>NO NETWORK REQUIRED</span></div>
+      <div class="controls-note"><b>W A S D</b> MOVE <i>·</i> <b>MOUSE</b> AIM <i>·</i> <b>CLICK</b> FIRE <i>·</i> <b>1–6</b> WEAPONS</div>
+    </section>
+    <section id="pause-screen" class="screen-panel compact hidden">
+      <div class="eyebrow"><span></span> SIMULATION PAUSED <span></span></div>
+      <h2>TAKE A BREATHER</h2>
+      <p>Outpost 09 will still be here.</p>
+      <button id="resume-button" class="primary-button">RESUME <span>→</span></button>
+      <div class="controls-note"><b>ESC</b> RESUME <i>·</i> <b>R</b> RELOAD</div>
+    </section>
+    <section id="end-screen" class="screen-panel compact hidden">
+      <div class="eyebrow"><span></span> RUN COMPLETE <span></span></div>
+      <h2 id="end-title">SECTOR SECURED</h2>
+      <p id="end-copy">The outpost is quiet. For now.</p>
+      <div class="final-score"><small>FINAL SCORE</small><b id="final-score">000000</b></div>
+      <button id="again-button" class="primary-button">DEPLOY AGAIN <span>→</span></button>
+    </section>
+    <div class="mobile-controls" id="mobile-controls">
+      <div id="joystick" class="joystick"><i></i><b></b></div>
+      <button id="mobile-fire" class="fire-button">FIRE</button>
+      <button id="mobile-switch" class="switch-button">SWAP<br>GUN</button>
+    </div>
+    <div id="toast" class="toast"></div>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
